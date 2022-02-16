@@ -10,9 +10,11 @@ class Candidacy extends Model
     use HasFactory;
 
     protected $fillable = [
-      'name',
-      'email',
-      'phone',
-      'path_cv'
+        'name' ,
+        'email' ,
+        'phone' ,
+        'path_cv' ,
+        'portfolio' ,
+        'linkedin'
     ];
 }

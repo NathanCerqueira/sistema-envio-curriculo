@@ -24,10 +24,10 @@ class NewCandidacyRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email|unique:candidacies,email',
+            'name' => 'required|string',
+            'email' => 'required|email',
             'phone' => 'required|max:11',
-            'cv' => 'required|file',
+            'file' => 'required|file',
             'portfolio' => 'url',
             'linkedin' => 'required|url'
         ];

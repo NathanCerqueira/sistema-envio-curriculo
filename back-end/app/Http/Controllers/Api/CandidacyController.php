@@ -6,33 +6,47 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\NewCandidacyRequest;
 use App\Http\Traits\HandleFile;
 use App\Models\Candidacy;
+use App\Events\NewCandidacy;
+use Illuminate\Http\JsonResponse;
+
 
 class CandidacyController extends Controller
 {
     use HandleFile;
 
-    private $candidacy;
-
-    public function __construct(Candidacy $candidacy)
+    public function newCandidacy(NewCandidacyRequest $request): JsonResponse
     {
-        $this->candidacy = $candidacy;
-    }
-
-    public function newCandidacy(NewCandidacyRequest $request)
-    {
-        $path_cv = $this->upload($request->allFiles());
+        $path_cv = $this->upload($request->file('file'));
 
         $payload = [
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'phone' => $request->input('phone'),
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
             'path_cv' => $path_cv,
-            'portfolio' =>
-                $request->input('portfolio') !== null ? $request->input('portfolio') : null,
-            'linkedin' => $request->input('linkedin')
+            'portfolio' =>$request->portfolio,
+            'linkedin' => $request->linkedin
         ];
 
-        $this->candidacy->save($payload);
+        try {
+
+            $candidate = Candidacy::create($payload);
+            event(new NewCandidacy($candidate));
+            return response()->json(['Sucesso' => 'Candidatura realizada com sucesso!'], 201);
+
+        }catch (\Exception $exception){
+
+            return response()->json(['Erro' => $exception->getMessage()], 404);
+
+        }
 
     }
+
+    public function getAllCandidacies(): JsonResponse
+    {
+        $candidacies = Candidacy::all();
+        return response()->json($candidacies, 200);
+    }
+
+
+
 }

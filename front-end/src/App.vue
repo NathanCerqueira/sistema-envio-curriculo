@@ -10,6 +10,14 @@
 *{
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar{
+  width: 5px;
+}
+::-webkit-scrollbar-thumb{
+  background: #42b983;
+  margin: 50px;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

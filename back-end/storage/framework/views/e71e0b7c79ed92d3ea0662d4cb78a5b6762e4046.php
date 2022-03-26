@@ -1,0 +1,2 @@
+[<?php echo e($slot); ?>](<?php echo e($url); ?>)
+<?php /**PATH /home/nathan/Projetos-Laravel/sistema-envio-curriculo/back-end/vendor/laravel/framework/src/Illuminate/Mail/resources/views/text/header.blade.php ENDPATH**/ ?>

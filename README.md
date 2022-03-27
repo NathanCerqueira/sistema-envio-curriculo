@@ -7,7 +7,6 @@ Depois dos dados serem enviados e armazenados com sucesso um email é disparado 
 
 Construi o projeto com o Front-End e Back-End separados, onde o Front faz requisições para o back.
 
-<hr>
 
 ## Stack utilizada
 
@@ -15,7 +14,6 @@ Construi o projeto com o Front-End e Back-End separados, onde o Front faz requis
 
 **Back-end:** Laravel
 
-<hr>
 
 ## Documentação da API (Back-End)
 

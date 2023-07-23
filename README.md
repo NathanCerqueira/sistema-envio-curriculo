@@ -35,7 +35,7 @@ Construi o projeto com o Front-End e Back-End separados, onde o Front faz requis
 
 - **Candidatura que foi armazenada**
 
-![candidatura](https://user-images.githubusercontent.com/62714648/160263605-c925d360-a700-499c-910b-3517e32a11f7.png)
+
 
 - **Email recebido após candidatura**
 
